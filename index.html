@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scientific Number Accepter</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff8c00, #4169e1); /* Gradien dari oranye ke biru */
+    }
+    .container {
+        background-color: #ffffff; /* Warna latar belakang kotak konten */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+        max-width: 400px; /* Lebar maksimum kotak konten */
+        width: 100%; /* Memenuhi lebar layar */
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333333; /* Warna judul */
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #cccccc; /* Garis pembatas */
+        border-radius: 6px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+    input[type="submit"] {
+        background-color: #4caf50; /* Warna latar tombol */
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        transition: background-color 0.3s ease; /* Efek transisi */
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049; /* Warna latar tombol saat dihover */
+    }
+    #result {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333333; /* Warna teks hasil */
+    }
+    .footer-text {
+        text-align: center;
+        margin-top: 20px;
+        color: #333333; /* Warna teks tambahan */
+        font-weight: bold; /* Tulisan tebal */
+        font-style: italic; /* Tulisan miring */
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Scientific Number Accepter</h1>
+    <form id="scientificForm">
+        <input type="text" id="scientificNumber" placeholder="Enter a scientific number...">
+        <input type="submit" value="Accept">
+    </form>
+    <p id="result"></p>
+    <div id="footerText" class="footer-text">
+        <p>Juan Nezart Rumampuk (221011060116)</p>
+        <p>FMIPA - Information System C</p>
+    </div>
+</div>
+<script>
+    const form = document.getElementById('scientificForm');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const numberInput = document.getElementById('scientificNumber').value;
+        const scientificRegex = /^[+\-]?\d+(\.\d+)?[eE][+\-]?\d+$/;
+        if (scientificRegex.test(numberInput)) {
+            document.getElementById('result').innerText = 'Accepted';
+        } else {
+            document.getElementById('result').innerText = 'Not a valid scientific number';
+        }
+    });
+</script>
+</body>
+</html>
